@@ -1,0 +1,62 @@
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px; /* Ajusta la distancia desde el borde inferior */
+  right: 20px; /* Ajusta la distancia desde el borde derecho */
+  background-color: #25D366; /* Color de fondo del botón de WhatsApp */
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  z-index: 1000; /* Asegura que esté por encima del contenido */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.whatsapp-btn:hover {
+  background-color: #128C7E; /* Color de fondo más oscuro cuando se pasa el cursor */
+  color: white;
+}
+
+.whatsapp-btn:active {
+  background-color: #25D366; /* Color de fondo original cuando se hace clic */
+}
+
+
+  header{
+    padding: 0px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+    background: #fff;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 0px;
+  }
+
+  .sidenav {
+    padding-top: 15px;
+}
+.sidenav li {
+    margin: 0;
+}
+
+.sidenav .sidenav-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidenav li a {
+  padding: 20px 20px; /* Ajusta el padding según sea necesario */
+  font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+}

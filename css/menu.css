@@ -1,0 +1,433 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff; /* Color de fondo de la página */
+  
+  
+.carrito {
+    background-color: #fff700;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+  }
+  
+  #cart-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+  }
+  
+  #cart-toggle i {
+    margin-right: 0.5rem; /* Espacio entre el icono y el texto */
+  }
+  
+  #cart-toggle:hover {
+    background-color: #000000;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .product-category {
+    width: 100%;
+    max-width: 1200px;
+    margin: 1rem 0;
+  }
+  
+  .product-category h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .product {
+    border: 1px solid #000;
+    padding: 1rem;
+    margin: 1rem;
+    width: 300px;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .product img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal img {
+    max-width: 30%;
+    height: auto;
+  }
+  
+  
+  .cart {
+    height: 50vh;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ffd500;
+    color: black;
+    border-right: 1px solid #495057; /* Color del borde */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    padding: 20px;
+    z-index: 999; /* Asegura que la barra lateral esté al frente */
+    padding: 1rem;
+    margin: 1rem;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    top: 60px;
+    right: 10px;
+    left: 10px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 15px;
+  }
+
+  
+  .cart.active {
+    display: block;
+  }
+  
+  .button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+  
+  button:hover {
+    background-color: rgb(250, 192, 82);
+  }
+  
+  .close-cart {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #000000;
+  }
+  
+  .close-cart:hover {
+    color: #000000; /* Mantiene el color del texto */
+    background-color: #ec1111; /* Mantiene el color de fondo */
+  } 
+  .cart-items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  
+  .cart-items li button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+  
+  
+  @media (min-width: 768px) {
+    main {
+        flex-direction: row;
+    }
+  
+    .cart {
+        top: 20px;
+        right: 20px;
+        left: auto;
+        max-height: none;
+    }
+  }
+  
+  
+  
+  .titulo {
+    background-color: #f5e4d3; /* Color de fondo similar al de la imagen */
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0; /* Espaciado superior e inferior */
+    border: 1px solid #d4b19d; /* Borde similar al de la imagen */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espaciado inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra similar */
+  }
+  
+  .titulo {
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0; /* Espaciado superior e inferior */
+    width: 100%; /* Abarcar todo el ancho */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    position: relative; /* Necesario para los elementos decorativos */
+  }
+  
+  .titulo h1 {
+    color: #000; /* Color del texto negro */
+    font-size: 36px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    font-family: 'Arial', sans-serif; /* Familia de fuentes similar */
+    text-transform: uppercase; /* Convertir a mayúsculas */
+    margin: 0; /* Eliminar margen */
+    position: relative; /* Necesario para los elementos decorativos */
+    font-family: 'Algerian', sans-serif;
+  }
+  
+  .titulo h1::before,
+  .titulo h1::after {
+    content: '';
+    display: block;
+    width: 40px; /* Ancho de los elementos decorativos */
+    height: 5px; /* Altura de los elementos decorativos */
+    background: #000; /* Color de los elementos decorativos */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Alinear verticalmente */
+    transform: translateY(-50%); /* Centrar verticalmente */
+  }
+  
+  .titulo h1::before {
+    left: 10px; /* Posicionamiento a la izquierda */
+  }
+  
+  .titulo h1::after {
+    right: 10px; /* Posicionamiento a la derecha */
+  }
+
+
+
+  .descrip {
+    text-align: center;
+  
+  }
+
+  .sopa{
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0; /* Espaciado superior e inferior */
+    width: 100%; /* Abarcar todo el ancho */
+   /* Espaciado superior e inferior */
+  
+  }
+
+  .reserve-popup {
+    border: 1px solid #000000;
+    padding: 1rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(20, 20, 30, 0.2);
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 15px;
+  }
+  
+  .reserve-popup .popup-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .reserve-popup h2 {
+    text-align: center;
+  }
+  
+  .close-reserve-popup {
+    border: none;
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close-reserve-popup:hover {
+    color: #000; /* Mantiene el color del texto igual en hover */
+    background-color: red; /* Mantiene el color de fondo igual en hover */
+  } 
+  .reserve-popup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .reserve-popup form label {
+    margin-top: 10px;
+  }
+  
+  .reserve-popup form input,
+  .reserve-popup form textarea {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .reserve-popup form button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color:#007BFF;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .reserve-popup form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .reserve-cart-items-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .reserve-cart-items-list li {
+    margin-bottom: 10px;
+  }
+
+  
+  .reserve-popup{
+    color: #000;
+  }
+
+  .reserve-form{
+  color: #000;
+  
+  }
+
+  .formulariouno{
+    font-size: 25px;
+    color: black;
+    text-align: center;
+  }
+  
+  #checkoutSection {
+    flex: 1;
+    width: 150px;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer; 
+  }
+
+  #checkoutSection:hover {
+    background-color: #007BFF /* Color de fondo cuando el cursor está sobre el botón */
+  }
+
+  .add-to-cart {
+    color: black; /* Color del texto */
+    background-color: #f0f0f0; /* Color de fondo inicial del botón */
+    border: 1px solid black; /* Borde del botón (opcional) */
+    padding: 0.5rem 1rem; /* Espaciado interno del botón (opcional) */
+    border-radius: 4px; /* Bordes redondeados del botón (opcional) */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+  }
+  
+  .add-to-cart:hover {
+    background-color: #FFB74D; /* Color de fondo cuando el cursor está sobre el botón */
+  }
+  
+  .add-to-cart:active {
+    background-color: #f0f0f0; /* Mantiene el color de fondo original al hacer clic */
+  }
+  
+  .add-to-cart:focus {
+    outline: none; /* Opcional: Elimina el contorno de enfoque */
+    background-color: #f0f0f0; /* Mantiene el color de fondo original al enfocar */
+  }
